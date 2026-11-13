@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GERMVERSE | Journey into the Invisible World</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#10091e;color:white;font-family:Arial;text-align:center}
+header{padding:35px 15px;background:linear-gradient(120deg,#24103e,#563078)}
+h1{font-size:38px;color:#dfb4ff}
+p{line-height:1.6;color:#e1d2ef}
+main{max-width:950px;margin:25px auto;padding:15px}
+.card{background:#241b36;border:1px solid #714b91;border-radius:18px;padding:22px;margin:15px 0}
+button,a{background:#8954bb;color:white;border:0;padding:12px 20px;border-radius:25px;text-decoration:none;font-weight:bold;cursor:pointer}
+#scene{height:340px;background:radial-gradient(circle,#45245f,#1a102c 70%,#090615);border-radius:18px;position:relative;overflow:hidden}
+.germ{position:absolute;font-size:55px;animation:float 3s infinite ease-in-out}
+@keyframes float{50%{transform:translateY(-20px) rotate(15deg)}}
+#microbe{font-size:100px;margin-top:65px}
+#info{min-height:65px;font-size:17px}
+</style>
+</head>
+<body>
+<header>
+<h1>GERMVERSE</h1>
+<h3>JOURNEY INTO THE INVISIBLE WORLD</h3>
+<p>Enter the fascinating microscopic world of microorganisms.</p>
+</header>
+<main>
+<div id="scene">
+<div class="germ" style="top:15%;left:12%">🦠</div>
+<div class="germ" style="top:25%;right:15%;animation-delay:1s">🧫</div>
+<div class="germ" style="bottom:12%;left:25%;animation-delay:2s">🦠</div>
+<div id="microbe">🦠</div>
+</div>
+<div class="card">
+<h2 id="topic">Bacteria: Tiny Living Organisms</h2>
+<p id="info">Bacteria are single-celled organisms found in many environments. Some are helpful, while others can cause disease.</p>
+<button onclick="previous()">PREVIOUS</button>
+<button onclick="next()">NEXT DISCOVERY</button>
+</div>
+<div class="card">
+<h2>Explore the invisible world</h2>
+<p>Discover microorganisms, infections, immunity and hygiene.</p>
+<a href="index.html">BACK TO SCIENCE ODYSSEY</a>
+</div>
+</main>
+<script>
+const lessons=[
+["Bacteria","🦠","Bacteria are single-celled organisms. Many are harmless or beneficial, while some cause infections."],
+["Viruses","🧬","Viruses need host cells to reproduce. Some viruses cause illnesses in humans, animals and plants."],
+["Fungi","🍄","Fungi include yeasts and moulds. Some are useful in food and medicine, while others cause infections."],
+["Protozoa","🔬","Protozoa are diverse single-celled organisms. Some species can cause diseases such as malaria."],
+["Immune Defence","🛡️","The immune system protects the body by recognising and responding to harmful microbes."]
+];
+let current=0;
+function show(){
+document.getElementById("topic").textContent=lessons[current][0];
+document.getElementById("microbe").textContent=lessons[current][1];
+document.getElementById("info").textContent=lessons[current][2];
+}
+function next(){current=(current+1)%lessons.length;show()}
+function previous(){current=(current+lessons.length-1)%lessons.length;show()}
+</script>
+</body>
+</html>
