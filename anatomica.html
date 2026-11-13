@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ANATOMICA | The Human Odyssey</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#071426;color:white;font-family:Arial;text-align:center}
+header{padding:35px 15px;background:linear-gradient(120deg,#09264b,#075c80)}
+h1{font-size:36px;color:#7bdcff}
+p{line-height:1.6;color:#c8ddeb}
+main{max-width:900px;margin:25px auto;padding:15px}
+.card{background:#102941;border:1px solid #285b7c;border-radius:18px;padding:22px;margin:15px 0}
+button,a{background:#087eaa;color:white;border:0;padding:12px 20px;border-radius:25px;text-decoration:none;font-weight:bold;cursor:pointer}
+#scene{height:330px;background:radial-gradient(circle,#a52e4b,#421126 55%,#071426);border-radius:18px;position:relative;overflow:hidden;display:grid;place-items:center}
+#heart{font-size:100px;animation:pulse 1s infinite}
+@keyframes pulse{50%{transform:scale(1.18)}}
+#info{font-size:18px;min-height:65px}
+</style>
+</head>
+<body>
+<header>
+<h1>ANATOMICA</h1>
+<h3>THE HUMAN ODYSSEY</h3>
+<p>A journey through the extraordinary human body.</p>
+</header>
+<main>
+<div id="scene"><div id="heart">❤️</div></div>
+<div class="card">
+<h2 id="topic">The Human Heart</h2>
+<p id="info">The heart is a muscular organ that pumps blood throughout the body.</p>
+<button onclick="previous()">PREVIOUS</button>
+<button onclick="next()">NEXT DISCOVERY</button>
+</div>
+<div class="card">
+<h2>Explore the human body</h2>
+<p>Discover how organs work together to keep us alive.</p>
+<a href="index.html">BACK TO MAIN PORTAL</a>
+</div>
+</main>
+<script>
+const lessons=[
+["The Human Heart","❤️","The heart pumps blood throughout the body, delivering oxygen and nutrients."],
+["The Human Brain","🧠","The brain controls thoughts, memory, movement and many body functions."],
+["The Lungs","🫁","The lungs exchange oxygen and carbon dioxide when we breathe."],
+["The Skeleton","🦴","The skeleton supports the body and protects important organs."],
+["The Digestive System","🥗","The digestive system breaks food down and absorbs nutrients."]
+];
+let current=0;
+function show(){
+document.getElementById("topic").textContent=lessons[current][0];
+document.getElementById("heart").textContent=lessons[current][1];
+document.getElementById("info").textContent=lessons[current][2];
+}
+function next(){current=(current+1)%lessons.length;show()}
+function previous(){current=(current+lessons.length-1)%lessons.length;show()}
+</script>
+</body>
+</html>
